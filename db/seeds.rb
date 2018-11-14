@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Restaurant.destroy_all
+p 'wiping database'
+10.times do
+  category = ['chinese', 'italian', 'japanese', 'french', 'belgian'].sample
+  name = Faker::Hipster.words(2).map! { |word| word.capitalize }.join(' ')
+  r = Restaurant.create(name: name, category: category,
+                        address: Faker::Address.street_address,
+                        phone_number: Faker::PhoneNumber.cell_phone)
+  puts "creating #{r.name}!"
+  5.times do
+    rating = [1, 2, 3, 4, 5].sample
+    Review.create(content: Faker::Hipster.paragraph, rating: rating,
+                  restaurant: r)
+  end
+end
