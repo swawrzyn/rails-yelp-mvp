@@ -1,15 +1,23 @@
+<div class="container-fluid">
 <div class="row">
-  <h3>All restaurants</h3>
-
-    <% @restaurants.each do |restaurant| %>
-    <div class="col-xs-6 col-sm-3">
+      <% @restaurants.each do |restaurant| %>
+      <div class="col-xs-6 col-sm-3">
        <div class="card">
-        <%= link_to restaurant.name, restaurant_path(restaurant) %>
+        <div class="card-top">
+          <h3><%= restaurant.name %></h3>
+        </div>
+        <div class="card-footer">
+          <div class="category"><p><%= restaurant.category %></p></div>
+          <div class="stars">
+            <% 3.times do %>
+            <span class='glyphicon glyphicon-star'></span>
+            <% end %>
+          </div>
+        </div>
+          <%= link_to '', restaurant_path(restaurant), class: "card-link"  %>
        </div>
-    </div>
+      </div>
      <% end %>
-
- </div>
-  <%= link_to "Add restaurant", new_restaurant_path, class: "btn btn-primary" %>
-
+    </div>
+</div>
 

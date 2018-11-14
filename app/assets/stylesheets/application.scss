@@ -10,11 +10,5 @@
 @import "font-awesome";
 
 // Your CSS partials
-@import "restaurants.scss";
+@import "restaurants/index";
 
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}

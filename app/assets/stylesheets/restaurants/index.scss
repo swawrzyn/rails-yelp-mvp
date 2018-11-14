@@ -1,0 +1,45 @@
+@import "navbar";
+
+.card {
+  position: relative;
+  margin: 20px 10px;
+  height: 150px;
+  min-width: 200px;
+  border: 1px solid black;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background: url('https://source.unsplash.com/random/800x600');
+  bacground-color: lightgrey;
+  background-size: cover;
+  height: 100px;
+  h3 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  p {
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+  }
+}
+
+.card-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
