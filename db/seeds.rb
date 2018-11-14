@@ -12,7 +12,7 @@ p 'wiping database'
   category = ['chinese', 'italian', 'japanese', 'french', 'belgian'].sample
   name = Faker::Hipster.words(2).map! { |word| word.capitalize }.join(' ')
   r = Restaurant.create(name: name, category: category,
-                        address: Faker::Address.street_address,
+                        address: Faker::Address.full_address,
                         phone_number: Faker::PhoneNumber.cell_phone)
   puts "creating #{r.name}!"
   5.times do
