@@ -1,14 +1,61 @@
-<h3><%= @restaurant.name %></h3>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%= @restaurant.category.capitalize %></p>
 
-<h4>Reviews</h4>
-<%= link_to "Add review", new_restaurant_review_path(@restaurant) %>
-<ul>
-<% @reviews.each do |review| %>
-  <li><%= review.content %> - <%= '*'*review.rating %></li>
-<% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="large-card">
+        <div class="large-card-header" style="background-image: url('<%= asset_path("restaurants/#{@restaurant.id}.jpeg") %>')"">
 
-<%= link_to "Go back", restaurants_path %>
+        </div>
+        <div class="large-card-details">
+          <div class="details-header text-center">
+            <h2><%= @restaurant.name %></h2>
+            <h3><%= @restaurant.address %></h3>
+            <p><%= @restaurant.phone_number %></p>
+            <p><%= @restaurant.category.capitalize %></p>
+            <% @restaurant.average_rating.times do %>
+                  <span class='glyphicon glyphicon-star'></span>
+                <% end %>
+          </div>
+          <div class="details-reviews">
+            <div class="add-review">
+              <%= simple_form_for [@restaurant, @review] do |f| %>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <%= f.input :content, label: false, placeholder: 'Type in your review' %>
+                </div>
+                <div class="panel-footer" style="height: 56px;">
+                  <%= f.input :rating, label: false, placeholder: 'Type in a rating from 1-5' %>
+                  <%= f.submit "add a review", class: "btn btn-primary" %>
+                </div>
+              </div>
+
+
+
+              <% end %>
+            </div>
+
+              <% @reviews.each do |review| %>
+            <div class="panel panel-default">
+            <div class="panel-body">
+              <%= review.content %>
+            </div>
+            <div class="panel-footer">
+              <div class="stars">
+                <% review.rating.times do %>
+                  <span class='glyphicon glyphicon-star'></span>
+                <% end %>
+              </div>
+              <div class="time">
+                <%= review.created_at.strftime("Posted: %m/%d/%Y at %I:%M%p")  %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

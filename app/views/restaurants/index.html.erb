@@ -3,13 +3,16 @@
       <% @restaurants.each do |restaurant| %>
       <div class="col-xs-6 col-sm-3">
        <div class="card">
-        <div class="card-top">
+        <div class="card-top" style="background: linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1)
+    ), url('<%= asset_path("restaurants/#{restaurant.id}.jpeg") %>')")>
           <h3><%= restaurant.name %></h3>
         </div>
         <div class="card-footer">
           <div class="category"><p><%= restaurant.category %></p></div>
           <div class="stars">
-            <% 3.times do %>
+            <% restaurant.average_rating.times do %>
             <span class='glyphicon glyphicon-star'></span>
             <% end %>
           </div>

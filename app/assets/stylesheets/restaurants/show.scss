@@ -1,0 +1,54 @@
+.large-card {
+  border: 0.5px solid #ddd;
+  margin: 20px;
+  box-shadow: 1px 1px 1px 1px #d8d8d8;
+
+  .large-card-header {
+    height: 400px;
+    background-size: cover;
+  }
+
+  .large-card-details {
+    .details-header {
+      border-bottom: 1px solid #ddd;
+      padding: 25px;
+      h2 {
+        font-size: 36px;
+        font-weight: normal;
+        margin: 10px 0;
+      }
+      h3 {
+        font-size: 16px;
+        font-style: italic;
+        margin: 10px 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+  .details-reviews {
+    width: 75%;
+    margin: 0 auto;
+
+  .add-review {
+    margin-top: 25px;
+  }
+
+  .panel-footer {
+    display: flex;
+    justify-content: space-between;
+
+    .time {
+      color: #999;
+    }
+
+    .panel-footer {
+      height: 30px;
+    }
+  }
+  }
+}
+
+
